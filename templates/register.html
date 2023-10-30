@@ -1,0 +1,29 @@
+
+    <div class="container">
+    {% if messages %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <br>
+            <label for="first_name">First name</label>
+            <input class="form-control" type="text" name="first_name" id="first_name" placeholder="First name"><br>
+            <label for="last_name">Last name</label>
+            <input class="form-control" type="text" name="last_name" id="last_name" placeholder="Last name"><br>
+            <label for="email">Email</label>
+            <input class="form-control" type="text" name="email" id="email" placeholder="Email"><br>
+            <label for="username">Username</label>
+            <input class="form-control" type="text" name="username" id="username" placeholder="Username"><br>
+            <label for="password1">Password</label>
+            <input class="form-control" type="password" name="password1" id="password1" placeholder="Password"><br>
+            <label for="confirm">Confirm password</label>
+            <input class="form-control" type="password" name="confirmation" id="confirm" placeholder="Confirm password"><br>
+            {{ form.as_p }}
+            <button class="btn btn-primary rounded-pill px-4" type="submit">Submit</button><br><br>
+        </form>
+    </div>

@@ -1,0 +1,23 @@
+<div class="col-lg-7 wow fadeIn" data-wow-delay="0.5s">
+    <div class="ps-3">
+        <h5 class="mb-1">{{ user.first_name }} {{ user.last_name }}</h5>
+    </div>
+{#                        <div class="owl-carousel testimonial-carousel border-start border-primary">#}
+                            <div class="testimonial-item ps-5">
+                                {% for prod in todo %}
+                                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                                <p class="fs-4">{{ prod.text }}</p>
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="id" value="{{ prod.id }}">
+                                    <button class="btn btn-black btn-sm" type="submit">Delete</button>
+                                </form>
+                                <div class="d-flex align-items-center">
+                                        <i class="fas fa-user-circle"></i>
+                                        <i class="fas fa-user-alt-slash"></i>
+                                        <div class="ps-3">
+                                        </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
